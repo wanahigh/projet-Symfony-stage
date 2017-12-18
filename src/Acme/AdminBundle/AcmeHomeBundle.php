@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\HomeBundle;
+namespace Acme\AdminBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

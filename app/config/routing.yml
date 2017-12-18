@@ -1,3 +1,7 @@
+acme_accueil:
+    resource: "@AcmeAccueilBundle/Resources/config/routing.yml"
+    prefix:   /
+
 
 acme_contact:
     resource: "@AcmeContactBundle/Resources/config/routing.yml"

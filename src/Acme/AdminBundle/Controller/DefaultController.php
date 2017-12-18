@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\HomeBundle\Controller;
+namespace Acme\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
@@ -12,9 +12,9 @@ class DefaultController extends Controller
 
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
 
-            // Sinon on déclenche une exception « Accès interdit »
+            // Sinon on déclenche un retour vers l'accueil »
 
-            throw new AccessDeniedException('Accès limité aux ADMIN.');
+            throw new AccessDeniedException('AcmeAccueilBundle:Default:index');
 
         }
 

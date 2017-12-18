@@ -104,6 +104,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // acme_accueil_homepage
+        if ('/accueil' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\AccueilBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_accueil_homepage',);
+        }
+
         // acme_contact_homepage
         if ('/contact' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'Acme\\ContactBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_contact_homepage',);
@@ -126,7 +131,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         // acme_home_homepage
         if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'Acme\\HomeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_home_homepage',);
+            $ret = array (  '_controller' => 'Acme\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_home_homepage',);
             if (substr($pathinfo, -1) !== '/') {
                 return array_replace($ret, $this->redirect($rawPathinfo.'/', 'acme_home_homepage'));
             }

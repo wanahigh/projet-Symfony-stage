@@ -39,19 +39,16 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
                          {#{{ app.user.username }}#}
                         {##}
                         <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-
                     {% else %}
-
                         <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-
                     {% endif %}</li>
-                <li><a  href="/profile">Mon Profil</a></li>
-                <li class="active"><a href="">register</a></li>
-                <li><a href="/cluster">Le cluster</a></li>
+                <li><a  href="/accueil">Accueil</a></li>
+                <li><a  href="">Les Travaux</a></li>
+                <li><a href="/cluster">Les acteurs</a></li>
+                <li><a href="">L'actu</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
