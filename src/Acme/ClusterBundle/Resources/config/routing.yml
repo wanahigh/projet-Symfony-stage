@@ -1,0 +1,3 @@
+acme_cluster_homepage:
+    path:     /
+    defaults: { _controller: AcmeClusterBundle:Default:index }
