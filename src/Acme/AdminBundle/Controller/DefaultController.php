@@ -20,7 +20,7 @@ class DefaultController extends Controller
 
 
 
-        return $this->render('AcmeHomeBundle:Default:index.html.twig');
+        return $this->render('AcmeHomeBundle:Default:contact.html.twig');
 
 
         // Ici l'utilisateur a les droits suffisant,

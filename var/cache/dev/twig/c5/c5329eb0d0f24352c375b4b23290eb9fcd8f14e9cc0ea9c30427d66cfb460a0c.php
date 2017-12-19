@@ -1,50 +1,57 @@
 <?php
 
-/* AcmeClusterBundle:Default:index.html.twig */
+/* AcmeClusterBundle:Default:contact.html.twig */
 class __TwigTemplate_aec4e46fed3a25926617b69209402bb444170d74223b3680f108628a02742c7b extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
-        $this->parent = false;
-
+        // line 1
+        $this->parent = $this->loadTemplate("base.html.twig", "AcmeClusterBundle:Default:contact.html.twig", 1);
         $this->blocks = array(
         );
     }
 
+    protected function doGetParent(array $context)
+    {
+        return "base.html.twig";
+    }
+
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3766a4e229ba912711eae40cf7dd7e2f73363a9768a4ba0318102573ee6ad580 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_3766a4e229ba912711eae40cf7dd7e2f73363a9768a4ba0318102573ee6ad580->enter($__internal_3766a4e229ba912711eae40cf7dd7e2f73363a9768a4ba0318102573ee6ad580_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AcmeClusterBundle:Default:index.html.twig"));
+        $__internal_c7aac9ef417e691e6545bd9c89037e7517bf5f75287e3be52d2d48d7b11478f3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_c7aac9ef417e691e6545bd9c89037e7517bf5f75287e3be52d2d48d7b11478f3->enter($__internal_c7aac9ef417e691e6545bd9c89037e7517bf5f75287e3be52d2d48d7b11478f3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AcmeClusterBundle:Default:contact.html.twig"));
 
-        $__internal_67b5fcd0883368265b4c86e0be93865cebd5d72bb1bc888d88da2a55da28a967 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_67b5fcd0883368265b4c86e0be93865cebd5d72bb1bc888d88da2a55da28a967->enter($__internal_67b5fcd0883368265b4c86e0be93865cebd5d72bb1bc888d88da2a55da28a967_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AcmeClusterBundle:Default:index.html.twig"));
+        $__internal_91a7d8045c4e3bec48cbed9210c2540844f56bf1d6eb0127c06d12178d741fd9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_91a7d8045c4e3bec48cbed9210c2540844f56bf1d6eb0127c06d12178d741fd9->enter($__internal_91a7d8045c4e3bec48cbed9210c2540844f56bf1d6eb0127c06d12178d741fd9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AcmeClusterBundle:Default:contact.html.twig"));
 
-        // line 1
-        echo "Hello World!
-";
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_3766a4e229ba912711eae40cf7dd7e2f73363a9768a4ba0318102573ee6ad580->leave($__internal_3766a4e229ba912711eae40cf7dd7e2f73363a9768a4ba0318102573ee6ad580_prof);
+        $__internal_c7aac9ef417e691e6545bd9c89037e7517bf5f75287e3be52d2d48d7b11478f3->leave($__internal_c7aac9ef417e691e6545bd9c89037e7517bf5f75287e3be52d2d48d7b11478f3_prof);
 
         
-        $__internal_67b5fcd0883368265b4c86e0be93865cebd5d72bb1bc888d88da2a55da28a967->leave($__internal_67b5fcd0883368265b4c86e0be93865cebd5d72bb1bc888d88da2a55da28a967_prof);
+        $__internal_91a7d8045c4e3bec48cbed9210c2540844f56bf1d6eb0127c06d12178d741fd9->leave($__internal_91a7d8045c4e3bec48cbed9210c2540844f56bf1d6eb0127c06d12178d741fd9_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "AcmeClusterBundle:Default:index.html.twig";
+        return "AcmeClusterBundle:Default:contact.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
     }
 
     public function getDebugInfo()
     {
-        return array (  25 => 1,);
+        return array (  11 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("Hello World!
-", "AcmeClusterBundle:Default:index.html.twig", "/var/www/html/Projet-Symfony-master/src/Acme/ClusterBundle/Resources/views/Default/index.html.twig");
+        return new Twig_Source("{% extends \"base.html.twig\" %}", "AcmeClusterBundle:Default:contact.html.twig", "/var/www/html/Projet-Symfony-master/src/Acme/ClusterBundle/Resources/views/Default/contact.html.twig");
     }
 }

@@ -20,8 +20,8 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="AcmeHomeBundle">Acme\AdminBundle\AcmeHomeBundle</parameter>
       <parameter key="AcmeClusterBundle">Acme\ClusterBundle\AcmeClusterBundle</parameter>
-      <parameter key="AcmeContactBundle">Acme\ContactBundle\AcmeContactBundle</parameter>
       <parameter key="AcmeAccueilBundle">Acme\AccueilBundle\AcmeAccueilBundle</parameter>
+      <parameter key="AcmeContactBundle">Acme\ContactBundle\AcmeContactBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -84,15 +84,15 @@
         <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/ClusterBundle</parameter>
         <parameter key="namespace">Acme\ClusterBundle</parameter>
       </parameter>
-      <parameter key="AcmeContactBundle" type="collection">
-        <parameter key="parent">null</parameter>
-        <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle</parameter>
-        <parameter key="namespace">Acme\ContactBundle</parameter>
-      </parameter>
       <parameter key="AcmeAccueilBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/AccueilBundle</parameter>
         <parameter key="namespace">Acme\AccueilBundle</parameter>
+      </parameter>
+      <parameter key="AcmeContactBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle</parameter>
+        <parameter key="namespace">Acme\ContactBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -885,7 +885,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>M14RwiPNiDxXlRs2+-gQl9</argument>
+      <argument>V93T+cbL3F3b-YE1Kngopr</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -895,7 +895,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>M14RwiPNiDxXlRs2+-gQl9</argument>
+      <argument>V93T+cbL3F3b-YE1Kngopr</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1702,14 +1702,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -2798,12 +2790,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a37e0d763f918.31123732</argument>
+      <argument>5a390ba7c2f2e1.27830295</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a37e0d763f918.31123732</argument>
+      <argument>5a390ba7c2f2e1.27830295</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3054,20 +3046,20 @@
         <argument>!AcmeCluster</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
-        <argument>AcmeContact</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
-        <argument>!AcmeContact</argument>
-      </call>
-      <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/AccueilBundle/Resources/views</argument>
         <argument>AcmeAccueil</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/AccueilBundle/Resources/views</argument>
         <argument>!AcmeAccueil</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
+        <argument>AcmeContact</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
+        <argument>!AcmeContact</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -3267,20 +3259,20 @@
         <argument>!AcmeCluster</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
-        <argument>AcmeContact</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
-        <argument>!AcmeContact</argument>
-      </call>
-      <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/AccueilBundle/Resources/views</argument>
         <argument>AcmeAccueil</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/AccueilBundle/Resources/views</argument>
         <argument>!AcmeAccueil</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
+        <argument>AcmeContact</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/views</argument>
+        <argument>!AcmeContact</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -4597,7 +4589,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>gB5h1xHyTS</argument>
       <argument>0</argument>
-      <argument>M14RwiPNiDxXlRs2+-gQl9</argument>
+      <argument>V93T+cbL3F3b-YE1Kngopr</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4605,7 +4597,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>lxyn67W66F</argument>
       <argument>0</argument>
-      <argument>M14RwiPNiDxXlRs2+-gQl9</argument>
+      <argument>V93T+cbL3F3b-YE1Kngopr</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4613,7 +4605,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>mc9v3LjODf</argument>
       <argument>0</argument>
-      <argument>M14RwiPNiDxXlRs2+-gQl9</argument>
+      <argument>V93T+cbL3F3b-YE1Kngopr</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4621,7 +4613,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>KhwyJZ3lsr</argument>
       <argument>0</argument>
-      <argument>M14RwiPNiDxXlRs2+-gQl9</argument>
+      <argument>V93T+cbL3F3b-YE1Kngopr</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

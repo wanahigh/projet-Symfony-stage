@@ -15,11 +15,11 @@ class __TwigTemplate_09e8fd47a1c277e57bdcf548adac14ad07917ea1a28eb216894972fb893
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9e16424ec38689e35b5ddf11ffe8f8780932584c3b54957db09a919b3ae50b60 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9e16424ec38689e35b5ddf11ffe8f8780932584c3b54957db09a919b3ae50b60->enter($__internal_9e16424ec38689e35b5ddf11ffe8f8780932584c3b54957db09a919b3ae50b60_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:bag.html.twig"));
+        $__internal_7b39bc11e3d2cefe2f09449d49e5d5586b0affc6daaa41792dd47f49cb50039b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_7b39bc11e3d2cefe2f09449d49e5d5586b0affc6daaa41792dd47f49cb50039b->enter($__internal_7b39bc11e3d2cefe2f09449d49e5d5586b0affc6daaa41792dd47f49cb50039b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:bag.html.twig"));
 
-        $__internal_30e3598fae0c7bd7ea8954ae692ef154aaa349f25434ceab5054492d328146f3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_30e3598fae0c7bd7ea8954ae692ef154aaa349f25434ceab5054492d328146f3->enter($__internal_30e3598fae0c7bd7ea8954ae692ef154aaa349f25434ceab5054492d328146f3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:bag.html.twig"));
+        $__internal_0b40926964714c387022632f40205260a25a634cd3142d4f24bfa1bd8626acc4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0b40926964714c387022632f40205260a25a634cd3142d4f24bfa1bd8626acc4->enter($__internal_0b40926964714c387022632f40205260a25a634cd3142d4f24bfa1bd8626acc4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:bag.html.twig"));
 
         // line 1
         echo "<table class=\"";
@@ -73,10 +73,10 @@ class __TwigTemplate_09e8fd47a1c277e57bdcf548adac14ad07917ea1a28eb216894972fb893
 </table>
 ";
         
-        $__internal_9e16424ec38689e35b5ddf11ffe8f8780932584c3b54957db09a919b3ae50b60->leave($__internal_9e16424ec38689e35b5ddf11ffe8f8780932584c3b54957db09a919b3ae50b60_prof);
+        $__internal_7b39bc11e3d2cefe2f09449d49e5d5586b0affc6daaa41792dd47f49cb50039b->leave($__internal_7b39bc11e3d2cefe2f09449d49e5d5586b0affc6daaa41792dd47f49cb50039b_prof);
 
         
-        $__internal_30e3598fae0c7bd7ea8954ae692ef154aaa349f25434ceab5054492d328146f3->leave($__internal_30e3598fae0c7bd7ea8954ae692ef154aaa349f25434ceab5054492d328146f3_prof);
+        $__internal_0b40926964714c387022632f40205260a25a634cd3142d4f24bfa1bd8626acc4->leave($__internal_0b40926964714c387022632f40205260a25a634cd3142d4f24bfa1bd8626acc4_prof);
 
     }
 
@@ -97,7 +97,7 @@ class __TwigTemplate_09e8fd47a1c277e57bdcf548adac14ad07917ea1a28eb216894972fb893
 
     public function getSourceContext()
     {
-        return new Twig_Source("<table class=\"{{ class|default('') }}\">
+        return new Twig_Source("<table class=\"{{ class|Default('') }}\">
     <thead>
         <tr>
             <th scope=\"col\" class=\"key\">{{ labels is defined ? labels[0] : 'Key' }}</th>
@@ -108,7 +108,7 @@ class __TwigTemplate_09e8fd47a1c277e57bdcf548adac14ad07917ea1a28eb216894972fb893
         {% for key in bag.keys|sort %}
             <tr>
                 <th>{{ key }}</th>
-                <td>{{ profiler_dump(bag.get(key), maxDepth=maxDepth|default(0)) }}</td>
+                <td>{{ profiler_dump(bag.get(key), maxDepth=maxDepth|Default(0)) }}</td>
             </tr>
         {% else %}
             <tr>

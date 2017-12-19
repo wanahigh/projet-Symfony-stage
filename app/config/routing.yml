@@ -1,11 +1,10 @@
+acme_contact:
+    resource: "@AcmeContactBundle/Resources/config/routing.yml"
+    prefix:   /
+
 acme_accueil:
     resource: "@AcmeAccueilBundle/Resources/config/routing.yml"
     prefix:   /
-
-
-acme_contact:
-    resource: "@AcmeContactBundle/Resources/config/routing.yml"
-    prefix:   /contact
 
 acme_cluster:
     resource: "@AcmeClusterBundle/Resources/config/routing.yml"
@@ -13,7 +12,7 @@ acme_cluster:
 
 acme_home:
     resource: "@AcmeHomeBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /home
 
 app:
     resource: '@AppBundle/Controller/'

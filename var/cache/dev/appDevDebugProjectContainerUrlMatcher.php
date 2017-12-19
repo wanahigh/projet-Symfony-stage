@@ -104,19 +104,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // acme_accueil_homepage
-        if ('/accueil' === $pathinfo) {
-            return array (  '_controller' => 'Acme\\AccueilBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_accueil_homepage',);
-        }
-
         // acme_contact_homepage
-        if ('/contact' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'Acme\\ContactBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_contact_homepage',);
-            if (substr($pathinfo, -1) !== '/') {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'acme_contact_homepage'));
-            }
-
-            return $ret;
+        if ('/contact' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\ContactBundle\\Controller\\DefaultController::contactAction',  '_route' => 'acme_contact_homepage',);
         }
 
         // acme_cluster_homepage
@@ -129,8 +119,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $ret;
         }
 
+        // acme_accueil_homepage
+        if ('/accueil' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\AccueilBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_accueil_homepage',);
+        }
+
         // acme_home_homepage
-        if ('' === $trimmedPathinfo) {
+        if ('/home' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'Acme\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_home_homepage',);
             if (substr($pathinfo, -1) !== '/') {
                 return array_replace($ret, $this->redirect($rawPathinfo.'/', 'acme_home_homepage'));
