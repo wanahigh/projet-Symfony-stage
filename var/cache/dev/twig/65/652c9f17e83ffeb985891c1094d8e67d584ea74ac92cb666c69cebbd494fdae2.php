@@ -15,11 +15,11 @@ class __TwigTemplate_67e0c2f5f4e4b700c0d6122aa2fcecbe3671188a8f63669c02c323cfa2a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d9b7c96973a3d881ca75ffaf2339c71b703af927845ebd6235767d918b6b4382 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d9b7c96973a3d881ca75ffaf2339c71b703af927845ebd6235767d918b6b4382->enter($__internal_d9b7c96973a3d881ca75ffaf2339c71b703af927845ebd6235767d918b6b4382_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:trace.html.twig"));
+        $__internal_a55e6c136f67074a6b9fb59bf0d131c94eec74f2ee93abd82765e2d0661a99c3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a55e6c136f67074a6b9fb59bf0d131c94eec74f2ee93abd82765e2d0661a99c3->enter($__internal_a55e6c136f67074a6b9fb59bf0d131c94eec74f2ee93abd82765e2d0661a99c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:trace.html.twig"));
 
-        $__internal_6a07884ee46e2f3be0a6415443630b5f1aef3406e55cb8ebd3c5b2718b0a7bf3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6a07884ee46e2f3be0a6415443630b5f1aef3406e55cb8ebd3c5b2718b0a7bf3->enter($__internal_6a07884ee46e2f3be0a6415443630b5f1aef3406e55cb8ebd3c5b2718b0a7bf3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:trace.html.twig"));
+        $__internal_4e2c556d37332c125e361d2d4045e4e40017f9c85919bae514067d910353db8e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4e2c556d37332c125e361d2d4045e4e40017f9c85919bae514067d910353db8e->enter($__internal_4e2c556d37332c125e361d2d4045e4e40017f9c85919bae514067d910353db8e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:trace.html.twig"));
 
         // line 1
         echo "<div class=\"trace-line-header break-long-words ";
@@ -120,10 +120,10 @@ class __TwigTemplate_67e0c2f5f4e4b700c0d6122aa2fcecbe3671188a8f63669c02c323cfa2a
 ";
         }
         
-        $__internal_d9b7c96973a3d881ca75ffaf2339c71b703af927845ebd6235767d918b6b4382->leave($__internal_d9b7c96973a3d881ca75ffaf2339c71b703af927845ebd6235767d918b6b4382_prof);
+        $__internal_a55e6c136f67074a6b9fb59bf0d131c94eec74f2ee93abd82765e2d0661a99c3->leave($__internal_a55e6c136f67074a6b9fb59bf0d131c94eec74f2ee93abd82765e2d0661a99c3_prof);
 
         
-        $__internal_6a07884ee46e2f3be0a6415443630b5f1aef3406e55cb8ebd3c5b2718b0a7bf3->leave($__internal_6a07884ee46e2f3be0a6415443630b5f1aef3406e55cb8ebd3c5b2718b0a7bf3_prof);
+        $__internal_4e2c556d37332c125e361d2d4045e4e40017f9c85919bae514067d910353db8e->leave($__internal_4e2c556d37332c125e361d2d4045e4e40017f9c85919bae514067d910353db8e_prof);
 
     }
 
@@ -144,8 +144,8 @@ class __TwigTemplate_67e0c2f5f4e4b700c0d6122aa2fcecbe3671188a8f63669c02c323cfa2a
 
     public function getSourceContext()
     {
-        return new Twig_Source("<div class=\"trace-line-header break-long-words {{ trace.file|Default(false) ? 'sf-toggle' }}\" data-toggle-selector=\"#trace-html-{{ prefix }}-{{ i }}\" data-toggle-initial=\"{{ _display_code_snippet ? 'display' }}\">
-    {% if trace.file|Default(false) %}
+        return new Twig_Source("<div class=\"trace-line-header break-long-words {{ trace.file|default(false) ? 'sf-toggle' }}\" data-toggle-selector=\"#trace-html-{{ prefix }}-{{ i }}\" data-toggle-initial=\"{{ _display_code_snippet ? 'display' }}\">
+    {% if trace.file|default(false) %}
         <span class=\"icon icon-close\">{{ include('@Twig/images/icon-minus-square.svg') }}</span>
         <span class=\"icon icon-open\">{{ include('@Twig/images/icon-plus-square.svg') }}</span>
     {% endif %}
@@ -154,8 +154,8 @@ class __TwigTemplate_67e0c2f5f4e4b700c0d6122aa2fcecbe3671188a8f63669c02c323cfa2a
         <span class=\"trace-class\">{{ trace.class|abbr_class }}</span>{% if trace.type is not empty %}<span class=\"trace-type\">{{ trace.type }}</span>{% endif %}<span class=\"trace-method\">{{ trace.function }}</span><span class=\"trace-arguments\">({{ trace.args|format_args }})</span>
     {% endif %}
 
-    {% if trace.file|Default(false) %}
-        {% set line_number = trace.line|Default(1) %}
+    {% if trace.file|default(false) %}
+        {% set line_number = trace.line|default(1) %}
         {% set file_link = trace.file|file_link(line_number) %}
         {% set file_path = trace.file|format_file(line_number)|striptags|replace({ (' at line ' ~ line_number): '' }) %}
         {% set file_path_parts = file_path|split(constant('DIRECTORY_SEPARATOR')) %}
@@ -167,7 +167,7 @@ class __TwigTemplate_67e0c2f5f4e4b700c0d6122aa2fcecbe3671188a8f63669c02c323cfa2a
         </span>
     {% endif %}
 </div>
-{% if trace.file|Default(false) %}
+{% if trace.file|default(false) %}
     <div id=\"trace-html-{{ prefix ~ '-' ~ i }}\" class=\"trace-code sf-toggle-content\">
         {{ trace.file|file_excerpt(trace.line, 5)|replace({
             '#DD0000': '#183691',

@@ -8,11 +8,11 @@ acme_accueil:
 
 acme_cluster:
     resource: "@AcmeClusterBundle/Resources/config/routing.yml"
-    prefix:   /cluster
+    prefix:   /
 
 acme_home:
     resource: "@AcmeHomeBundle/Resources/config/routing.yml"
-    prefix:   /home
+    prefix:   /
 
 app:
     resource: '@AppBundle/Controller/'

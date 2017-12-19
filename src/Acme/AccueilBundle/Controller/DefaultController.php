@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function contactAction()
+    public function indexAction()
     {
-        return $this->render('AcmeAccueilBundle:Default:contact.html.twig');
+        return $this->render('AcmeAccueilBundle::contact.html.twig');
     }
 }

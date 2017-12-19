@@ -10,10 +10,10 @@ Acme\ContactBundle\Entity\Entity\Contact:
                 strategy: AUTO
     fields:
         nom:
-            type: text
+            type: string
             column: Nom
         prenom:
-            type: text
+            type: string
             column: Prenom
         organisation:
             type: string

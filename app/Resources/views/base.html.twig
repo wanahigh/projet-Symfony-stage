@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Compiled and minified CSS BOOSTRAP -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Compiled and minified CSS MATERIALIZE -->
+
 
     {% block title %}{% endblock %}</title>
 
@@ -37,14 +43,15 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <div class="chip">
+                <div>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                          {#{{ app.user.username }}#}
                         {##}
                         <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                     {% else %}
                         <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                    {% endif %}</li>
+                    {% endif %}</div>
                 <li><a  href="/accueil">Accueil</a></li>
                 <li><a  href="">Les Travaux</a></li>
                 <li><a href="/cluster">Les acteurs</a></li>
@@ -316,12 +323,17 @@
         opacity: 0.6;
         transition: opacity ease 0.5s;
     }
-    .login-help{
-        font-size: 12px;
+
+    .page-footer
+    {
+        margin-top:25%;
     }
+
+
 </style>
 
-
+<!-- Compiled and minified JavaScript BOOSTRAPE, JQuery, MATERIALIZE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -377,9 +389,32 @@
 {% endfor %}
 {% block content %}{% endblock %}
 {% block body %}{% endblock %}
-{% block footer%} <nav class="navbar fixed-bottom navbar-light bg-light">
-    <a class="navbar-brand" href="/">Myriapolis</a>
-</nav>{% endblock %}
+
+<footer class="page-footer blue">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
 
 {% block javascripts %}{% endblock %}
 

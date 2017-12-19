@@ -15,11 +15,11 @@ class __TwigTemplate_05690741e05e0e32b1a010dde0d9fb4dca210ba1f8c616ba34017ed934d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_bfc64ab214342f5c39bfbf25a0f7b0db15ce0bf806e5dd9a3fcb5bf0dfb31713 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_bfc64ab214342f5c39bfbf25a0f7b0db15ce0bf806e5dd9a3fcb5bf0dfb31713->enter($__internal_bfc64ab214342f5c39bfbf25a0f7b0db15ce0bf806e5dd9a3fcb5bf0dfb31713_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:toolbar_item.html.twig"));
+        $__internal_9423c244aa56ff12eb7b40562ca3f22743b5fd0b83138ce77bd859a4f18f44bd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_9423c244aa56ff12eb7b40562ca3f22743b5fd0b83138ce77bd859a4f18f44bd->enter($__internal_9423c244aa56ff12eb7b40562ca3f22743b5fd0b83138ce77bd859a4f18f44bd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:toolbar_item.html.twig"));
 
-        $__internal_385a3e24746635564c446aebdb457f51344cc86ab96c0b8e6800e77a4fe73f02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_385a3e24746635564c446aebdb457f51344cc86ab96c0b8e6800e77a4fe73f02->enter($__internal_385a3e24746635564c446aebdb457f51344cc86ab96c0b8e6800e77a4fe73f02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:toolbar_item.html.twig"));
+        $__internal_22de51979c526f4d7f0adbfde77611d2e3544d2d2bc16d2ce0caf66947cd60dd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_22de51979c526f4d7f0adbfde77611d2e3544d2d2bc16d2ce0caf66947cd60dd->enter($__internal_22de51979c526f4d7f0adbfde77611d2e3544d2d2bc16d2ce0caf66947cd60dd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:toolbar_item.html.twig"));
 
         // line 1
         echo "<div class=\"sf-toolbar-block sf-toolbar-block-";
@@ -54,10 +54,10 @@ class __TwigTemplate_05690741e05e0e32b1a010dde0d9fb4dca210ba1f8c616ba34017ed934d
 </div>
 ";
         
-        $__internal_bfc64ab214342f5c39bfbf25a0f7b0db15ce0bf806e5dd9a3fcb5bf0dfb31713->leave($__internal_bfc64ab214342f5c39bfbf25a0f7b0db15ce0bf806e5dd9a3fcb5bf0dfb31713_prof);
+        $__internal_9423c244aa56ff12eb7b40562ca3f22743b5fd0b83138ce77bd859a4f18f44bd->leave($__internal_9423c244aa56ff12eb7b40562ca3f22743b5fd0b83138ce77bd859a4f18f44bd_prof);
 
         
-        $__internal_385a3e24746635564c446aebdb457f51344cc86ab96c0b8e6800e77a4fe73f02->leave($__internal_385a3e24746635564c446aebdb457f51344cc86ab96c0b8e6800e77a4fe73f02_prof);
+        $__internal_22de51979c526f4d7f0adbfde77611d2e3544d2d2bc16d2ce0caf66947cd60dd->leave($__internal_22de51979c526f4d7f0adbfde77611d2e3544d2d2bc16d2ce0caf66947cd60dd_prof);
 
     }
 
@@ -78,11 +78,11 @@ class __TwigTemplate_05690741e05e0e32b1a010dde0d9fb4dca210ba1f8c616ba34017ed934d
 
     public function getSourceContext()
     {
-        return new Twig_Source("<div class=\"sf-toolbar-block sf-toolbar-block-{{ name }} sf-toolbar-status-{{ status|Default('normal') }} {{ additional_classes|Default('') }}\" {{ block_attrs|Default('')|raw }}>
+        return new Twig_Source("<div class=\"sf-toolbar-block sf-toolbar-block-{{ name }} sf-toolbar-status-{{ status|default('normal') }} {{ additional_classes|default('') }}\" {{ block_attrs|default('')|raw }}>
     {% if link is not defined or link %}<a href=\"{{ path('_profiler', { token: token, panel: name }) }}\">{% endif %}
-        <div class=\"sf-toolbar-icon\">{{ icon|Default('') }}</div>
-    {% if link|Default(false) %}</a>{% endif %}
-        <div class=\"sf-toolbar-info\">{{ text|Default('') }}</div>
+        <div class=\"sf-toolbar-icon\">{{ icon|default('') }}</div>
+    {% if link|default(false) %}</a>{% endif %}
+        <div class=\"sf-toolbar-info\">{{ text|default('') }}</div>
 </div>
 ", "WebProfilerBundle:Profiler:toolbar_item.html.twig", "/var/www/html/Projet-Symfony-master/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/toolbar_item.html.twig");
     }

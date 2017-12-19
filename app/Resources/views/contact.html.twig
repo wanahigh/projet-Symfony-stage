@@ -1,28 +1,488 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-{{ form_start(form) }}
+    {% block title %}{% endblock %}</title>
 
-<div>
-    {{ form_widget(form.subject) }}
-    {{ form_errors(form.subject) }}
-</div>
-<div>
-    {{ form_widget(form.name) }}
-    {{ form_errors(form.name) }}
-</div>
-<div>
-    {{ form_widget(form.email) }}
-    {{ form_errors(form.email) }}
-</div>
-<div>
-    {{ form_widget(form.message) }}
-    {{ form_errors(form.message) }}
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="small-logo-container">
+                <a class="small-logo" href="#">Myriapolis</a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="chip">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {#{{ app.user.username }}#}
+                        {##}
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    {% endif %}</li>
+                </div>
+                <li><a  href="/accueil">Accueil</a></li>
+                <li><a  href="">Les Travaux</a></li>
+                <li><a href="/cluster">Les acteurs</a></li>
+                <li><a href="">L'actu</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
 </div>
 
-{# Render CSRF token etc .#}
-<div style="display:none">
-    {{ form_rest(form) }}
-</div>
 
-<input type="submit" value="Submit">
+<div class="container-fluid big-logo-row">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 big-logo-container">
+                <h1 class="big-logo"><img style="width:2em;padding-bottom:55px;" src="http://alesmyriapolis.fr/wp-content/uploads/2016/06/cropped-cropped-Logo-2016-V3-1.png" alt=""></h1>
+            </div><!--/.col-xs-12 -->
+        </div><!--/.row -->
+    </div><!--/.container -->
+</div><!--/.container-fluid -->
 
-{{ form_end(form) }}
+
+{#Footer#}
+
+
+
+
+<style>/* *********************************
+           Variables
+  ********************************** */
+    /* *********************************
+       Some Style Overrides on Bootstrap
+      ********************************** */
+    .navbar-inverse {
+        background: rgba(62, 195, 246, 0);
+        border-bottom: none;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border: 1px solid #333;
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: transparent;
+    }
+    @media (max-width: 767px) {
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+            background: rgba(255, 255, 255, 0.75);
+        }
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: black;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: #22F;
+    }
+
+    /* *********************************
+               Toolbar Logo
+      ********************************** */
+    .small-logo-container {
+        padding-top: 50px;
+        height: 50px;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    .small-logo {
+        color: white;
+        font-size: 2.5em;
+        font-size: 2.5em;
+        padding-bottom: -5px;
+    }
+
+    /* *********************************
+               Big Logo
+      ********************************** */
+    .big-logo-row {
+        background: gold;
+    }
+    .big-logo-row .big-logo-container {
+        padding-top: 50px;
+    }
+    .big-logo-row h1 {
+        font-size: 4em;
+        margin: 0;
+        padding: 0 0 15px 0;
+    }
+    @media (min-width: 400px) {
+        .big-logo-row h1 {
+            font-size: 4.5em;
+        }
+    }
+    @media (min-width: 440px) {
+        .big-logo-row h1 {
+            font-size: 5.5em;
+        }
+    }
+    @media (min-width: 500px) {
+        .big-logo-row h1 {
+            font-size: 6.5em;
+        }
+    }
+    @media (min-width: 630px) {
+        .big-logo-row h1 {
+            font-size: 7.5em;
+        }
+    }
+    @media (min-width: 768px) {
+        .big-logo-row h1 {
+            font-size: 9em;
+            padding-bottom: 30px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .big-logo-row h1 {
+            font-size: 12em;
+        }
+    }
+
+    @import url(http://fonts.googleapis.com/css?family=Roboto);
+    /****** LOGIN ******/
+    .login-container {
+        padding: 30px;
+        max-width: 350px;
+        width: 100% !important;
+        background-color: #F7F7F7;
+        margin: 100px auto;
+        border-radius: 2px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        font-family: roboto;
+    }
+    .login-container h1 {
+        text-align: center;
+        font-size: 1.8em;
+        font-family: roboto;
+    }
+    .login-container input[type=submit] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .login-container input[type=text], input[type=password] {
+        height: 44px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        /* border-radius: 2px; */
+        padding: 0 8px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .login-container input[type=text]:hover, input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .login-submit {
+        /* border: 1px solid #3079ed; */
+        border: 0px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0,0,0,0.1);
+        background-color: #4d90fe;
+        padding: 17px 0px;
+        font-family: roboto;
+        font-size: 14px;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+    }
+    .login-submit:hover {
+        /* border: 1px solid #2f5bb7; */
+        border: 0px;
+        text-shadow: 0 1px rgba(0,0,0,0.3);
+        background-color: #357ae8;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+    }
+    .login-container a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 400;
+        text-align: center;
+        display: inline-block;
+        opacity: 0.6;
+        transition: opacity ease 0.5s;
+    }
+    .login-help{
+        font-size: 12px;
+    }
+
+    @import url(http://fonts.googleapis.com/css?family=Roboto);
+    /****** LOGIN ******/
+    .login-container {
+        padding: 30px;
+        max-width: 350px;
+        width: 100% !important;
+        background-color: #F7F7F7;
+        margin: 100px auto;
+        border-radius: 2px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        font-family: roboto;
+    }
+    .login-container h1 {
+        text-align: center;
+        font-size: 1.8em;
+        font-family: roboto;
+    }
+    .login-container input[type=submit] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .login-container input[type=text], input[type=password] {
+        height: 44px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        /* border-radius: 2px; */
+        padding: 0 8px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .login-container input[type=text]:hover, input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .login-submit {
+        /* border: 1px solid #3079ed; */
+        border: 0px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0,0,0,0.1);
+        background-color: #4d90fe;
+        padding: 17px 0px;
+        font-family: roboto;
+        font-size: 14px;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+    }
+    .login-submit:hover {
+        /* border: 1px solid #2f5bb7; */
+        border: 0px;
+        text-shadow: 0 1px rgba(0,0,0,0.3);
+        background-color: #357ae8;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+    }
+    .login-container a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 400;
+        text-align: center;
+        display: inline-block;
+        opacity: 0.6;
+        transition: opacity ease 0.5s;
+    }
+    .login-help{
+        font-size: 12px;
+    }
+
+    .input_1{
+        color:dodgerblue;
+    }
+
+    #form1{
+
+        margin-left:25%;
+        margin-right:25%;
+    }
+
+    h1{
+        margin-left:25%;
+    }
+
+    #submit{
+        margin-left:40vw;
+    }
+</style>
+
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<script>
+
+    var navbarHeight = $('.navbar').height();
+
+    $(window).scroll(function() {
+        var navbarColor = "62,195,246";//color attr for rgba
+        var smallLogoHeight = $('.small-logo').height();
+        var bigLogoHeight = $('.big-logo').height();
+
+
+        var smallLogoEndPos = 0;
+        var smallSpeed = (smallLogoHeight / bigLogoHeight);
+
+        var ySmall = ($(window).scrollTop() * smallSpeed);
+
+        var smallPadding = navbarHeight - ySmall;
+        if (smallPadding > navbarHeight) { smallPadding = navbarHeight; }
+        if (smallPadding < smallLogoEndPos) { smallPadding = smallLogoEndPos; }
+        if (smallPadding < 0) { smallPadding = 0; }
+
+        $('.small-logo-container ').css({ "padding-top": smallPadding});
+
+        var navOpacity = ySmall / smallLogoHeight;
+        if  (navOpacity > 1) { navOpacity = 1; }
+        if (navOpacity < 0 ) { navOpacity = 0; }
+        var navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
+        $('.navbar').css({"background-color": navBackColor});
+
+        var shadowOpacity = navOpacity * 0.4;
+        if ( ySmall > 1) {
+            $('.navbar').css({"box-shadow": "0 2px 3px rgba(0,0,0," + shadowOpacity + ")"});
+        } else {
+            $('.navbar').css({"box-shadow": "none"});
+        }
+    });</script>
+
+<form id="form1" class="card">
+    <h1>Nous contacter</h1>
+    <div>
+
+            {{ form_widget(form.Nom) }}
+            {{ form_errors(form.Nom) }}
+            {{ form_label(form.Nom, 'Votre Nom', {
+            'label_attr': {'class': 'input_1'}
+            }) }}
+        </div>
+        <div>
+
+            {{ form_widget(form.Prenom) }}
+            {{ form_errors(form.Prenom) }}
+            {{ form_label(form.Nom, 'Votre Prénom', {
+                'label_attr': {'class': 'input_1'}
+            }) }}
+        </div>
+        <div>
+
+        {{ form_widget(form.Organisation) }}
+        {{ form_errors(form.Organisation) }}
+        {{ form_label(form.Nom, 'Votre Organisation', {
+            'label_attr': {'class': 'input_1'}
+        }) }}
+        </div>
+        <div>
+
+        {{ form_widget(form.Email) }}
+        {{ form_errors(form.Email) }}
+        {{ form_label(form.Nom, 'Votre Email', {
+            'label_attr': {'class': 'input_1'}
+        }) }}
+        </div>
+        <div>
+
+            {{ form_widget(form.Sujet) }}
+            {{ form_errors(form.Sujet) }}
+            {{ form_label(form.Nom, 'Sujet', {
+                'label_attr': {'class': 'input_1'}
+            }) }}
+        </div>
+        <div>
+
+            {{ form_widget(form.Message) }}
+            {{ form_errors(form.Message) }}
+            {{ form_label(form.Nom, 'Message', {
+                'label_attr': {'class': 'input_1'}
+            }) }}
+        </div>
+    {# Render CSRF token etc .#}
+    <div style="display:none">
+        {{ form_rest(form) }}
+    </div>
+    <div>
+        <input id="submit" class="btn-large " type="submit" value="Envoyer">
+    </div>
+
+    {{ form_end(form) }}
+    </div>
+
+</form>
+
+<footer class="page-footer blue">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

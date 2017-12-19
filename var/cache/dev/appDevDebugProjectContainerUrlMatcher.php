@@ -110,13 +110,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // acme_cluster_homepage
-        if ('/cluster' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'Acme\\ClusterBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_cluster_homepage',);
-            if (substr($pathinfo, -1) !== '/') {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'acme_cluster_homepage'));
-            }
-
-            return $ret;
+        if ('/cluster' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\ClusterBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_cluster_homepage',);
         }
 
         // acme_accueil_homepage
@@ -125,7 +120,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // acme_home_homepage
-        if ('/home' === $trimmedPathinfo) {
+        if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'Acme\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_home_homepage',);
             if (substr($pathinfo, -1) !== '/') {
                 return array_replace($ret, $this->redirect($rawPathinfo.'/', 'acme_home_homepage'));

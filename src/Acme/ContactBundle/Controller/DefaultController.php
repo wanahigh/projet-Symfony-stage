@@ -3,13 +3,12 @@
 namespace Acme\ContactBundle\Controller;
 
 
-use Acme\ContactBundle\Entity\Entity\Contact;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class DefaultController extends Controller
 {
@@ -18,11 +17,14 @@ class DefaultController extends Controller
 
         $form = $this->createFormBuilder()
             ->add('Nom', TextType::class)
-            ->add('Prenom', DateType::class)
-            ->add('save', SubmitType::class, array('label' => 'Envoyer'))
+            ->add('Prenom', TextType::class)
+            ->add('Organisation', TextType::class)
+            ->add('Email', TextType::class)
+            ->add('Sujet', TextType::class)
+            ->add('Message', TextType::class)
             ->getForm();
 
-        return $this->render('Default:contact.html.twig', array(
+        return $this->render('contact.html.twig', array(
             'form' => $form->createView(),
         ));
     }

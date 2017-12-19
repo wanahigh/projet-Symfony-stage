@@ -2,12 +2,10 @@
 
 namespace Acme\ContactBundle\Form\Entity;
 
-use Doctrine\DBAL\Types\StringType;
+use  Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 class ContactType extends AbstractType
 {
     /**
@@ -15,7 +13,12 @@ class ContactType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom:', TextareaType::class)->add('prenom', TextareaType::class)->add('organisation',StringType::class)->add('email',StringType::STRING)->add('sujet',StringType::STRING)->add('message',StringType::STRING);
+        $builder->add('Nom:', TextType::class)
+            ->add('Prenom', TextType::class)
+            ->add('Organisation',TextType::class)
+            ->add('Email',TextType::class)
+            ->add('Sujet',TextType::class)
+            ->add('Message',TextType::class);
     }/**
      * {@inheritdoc}
      */
