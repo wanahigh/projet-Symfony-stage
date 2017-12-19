@@ -383,52 +383,52 @@
 <form id="form1" class="card">
     <h1>Nous contacter</h1>
     <div>
-
-            {{ form_widget(form.Nom) }}
-            {{ form_errors(form.Nom) }}
             {{ form_label(form.Nom, 'Votre Nom', {
             'label_attr': {'class': 'input_1'}
             }) }}
+            {{ form_widget(form.Nom) }}
+            {{ form_errors(form.Nom) }}
+
         </div>
         <div>
-
-            {{ form_widget(form.Prenom) }}
-            {{ form_errors(form.Prenom) }}
             {{ form_label(form.Nom, 'Votre Prénom', {
                 'label_attr': {'class': 'input_1'}
             }) }}
+            {{ form_widget(form.Prenom) }}
+            {{ form_errors(form.Prenom) }}
+
         </div>
         <div>
-
+            {{ form_label(form.Nom, 'Votre Organisation', {
+                'label_attr': {'class': 'input_1'}
+            }) }}
         {{ form_widget(form.Organisation) }}
         {{ form_errors(form.Organisation) }}
-        {{ form_label(form.Nom, 'Votre Organisation', {
-            'label_attr': {'class': 'input_1'}
-        }) }}
+
         </div>
         <div>
-
+            {{ form_label(form.Nom, 'Votre Email', {
+                'label_attr': {'class': 'input_1'}
+            }) }}
         {{ form_widget(form.Email) }}
         {{ form_errors(form.Email) }}
-        {{ form_label(form.Nom, 'Votre Email', {
-            'label_attr': {'class': 'input_1'}
-        }) }}
+
         </div>
         <div>
-
-            {{ form_widget(form.Sujet) }}
-            {{ form_errors(form.Sujet) }}
             {{ form_label(form.Nom, 'Sujet', {
                 'label_attr': {'class': 'input_1'}
             }) }}
+            {{ form_widget(form.Sujet) }}
+            {{ form_errors(form.Sujet) }}
+
         </div>
         <div>
-
-            {{ form_widget(form.Message) }}
-            {{ form_errors(form.Message) }}
             {{ form_label(form.Nom, 'Message', {
                 'label_attr': {'class': 'input_1'}
             }) }}
+            {{ form_widget(form.Message) }}
+            {{ form_errors(form.Message) }}
+
         </div>
     {# Render CSRF token etc .#}
     <div style="display:none">

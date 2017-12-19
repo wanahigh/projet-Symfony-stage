@@ -14,13 +14,14 @@ class DefaultController extends Controller
 
             // Sinon on déclenche un retour vers l'accueil »
 
-            throw new AccessDeniedException('AcmeAccueilBundle:Default:index');
+            throw new AccessDeniedException('AcmeHomeBundle:Default:index');
+
 
         }
 
 
+        return $this->render('AcmeHomeBundle:Default:index.html.twig');
 
-        return $this->render('AcmeHomeBundle:Default:contact.html.twig');
 
 
         // Ici l'utilisateur a les droits suffisant,

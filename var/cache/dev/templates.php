@@ -112,7 +112,7 @@
   'FOSUserBundle:Resetting:email.txt.twig' => __DIR__.'/../../../vendor/friendsofsymfony/user-bundle/Resources/views/Resetting/email.txt.twig',
   'FOSUserBundle:Resetting:reset.html.twig' => __DIR__.'/../../../vendor/friendsofsymfony/user-bundle/Resources/views/Resetting/reset.html.twig',
   'FOSUserBundle:Resetting:request.html.twig' => __DIR__.'/../../../vendor/friendsofsymfony/user-bundle/Resources/views/Resetting/request.html.twig',
-  'AcmeHomeBundle::layout.html.twig' => __DIR__.'/../../../src/Acme/AdminBundle/Resources/views/layout.html.twig',
+  'AcmeHomeBundle::index.html.twig' => __DIR__.'/../../../src/Acme/AdminBundle/Resources/views/index.html.twig',
   'AcmeHomeBundle:Default:index.html.twig' => __DIR__.'/../../../src/Acme/AdminBundle/Resources/views/Default/index.html.twig',
   'AcmeClusterBundle:Default:index.html.twig' => __DIR__.'/../../../src/Acme/ClusterBundle/Resources/views/Default/index.html.twig',
   'DebugBundle:Profiler:dump.html.twig' => __DIR__.'/../../../vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views/Profiler/dump.html.twig',
@@ -153,4 +153,5 @@
   '::index.html.twig' => __DIR__.'/../../../app/Resources/views/index.html.twig',
   '::contact.html.twig' => __DIR__.'/../../../app/Resources/views/contact.html.twig',
   '::base.html.twig' => __DIR__.'/../../../app/Resources/views/base.html.twig',
+  '::accueil.html.twig' => __DIR__.'/../../../app/Resources/views/accueil.html.twig',
 );
