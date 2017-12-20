@@ -19,7 +19,7 @@
             <ul class="left hide-on-med-and-down">
                 <li><a href="/Filiale">La Filiaire</a></li>
                 <li><a href="/Work">Les Travaux</a></li>
-                <li><a href="/acteur">Les Acteurs</a></li>
+                <li><a href="/entity_actor">Les Acteurs</a></li>
                 <li><a href="/entity_advert">L'actu</a></li>
                 <li><a href="/contact">Contacts</a></li>
                 <div class="chip white">
@@ -37,15 +37,18 @@
 </div>
 <form id="form1" class="card">
     <h1>Nous contacter</h1>
-    <div>
+
+
+    <div class="row">
+        <div class="col lg 2">
             {{ form_label(form.Nom, 'Votre Nom', {
             'label_attr': {'class': 'input_1'}
             }) }}
             {{ form_widget(form.Nom) }}
             {{ form_errors(form.Nom) }}
-
         </div>
-        <div>
+
+            <div class="col lg 2">
             {{ form_label(form.Nom, 'Votre Prénom', {
                 'label_attr': {'class': 'input_1'}
             }) }}
@@ -53,31 +56,29 @@
             {{ form_errors(form.Prenom) }}
 
         </div>
-        <div>
-            {{ form_label(form.Nom, 'Votre Organisation', {
-                'label_attr': {'class': 'input_1'}
-            }) }}
-        {{ form_widget(form.Organisation) }}
-        {{ form_errors(form.Organisation) }}
+<
 
-        </div>
-        <div>
+            <div class="col lg 2">
             {{ form_label(form.Nom, 'Votre Email', {
-                'label_attr': {'class': 'input_1'}
-            }) }}
-        {{ form_widget(form.Email) }}
-        {{ form_errors(form.Email) }}
-
-        </div>
-        <div>
+                'label_attr': {'class': 'input_1'}}) }}
+                {{ form_widget(form.Email) }}
+                {{ form_errors(form.Email) }}
+            </div>
+    </div>
+        <div class="row">
+            <div class="col lg 6">
             {{ form_label(form.Nom, 'Sujet', {
                 'label_attr': {'class': 'input_1'}
             }) }}
             {{ form_widget(form.Sujet) }}
             {{ form_errors(form.Sujet) }}
-
         </div>
-        <div>
+        </div>
+
+
+      <div class="row">
+
+
             {{ form_label(form.Nom, 'Message', {
                 'label_attr': {'class': 'input_1'}
             }) }}
@@ -141,3 +142,4 @@
 
 
 
+</>

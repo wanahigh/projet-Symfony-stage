@@ -114,12 +114,70 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'Acme\\FilialeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_filiale_homepage',);
         }
 
-        // acme_acteur_homepage
-        if ('/acteur' === $pathinfo) {
-            return array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_acteur_homepage',);
+        if (0 === strpos($pathinfo, '/entity_actor')) {
+            // entity_actor_index
+            if ('/entity_actor' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_entity_actor_index;
+                }
+
+                $ret = array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\Entity\\ActorController::indexAction',  '_route' => 'entity_actor_index',);
+                if (substr($pathinfo, -1) !== '/') {
+                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'entity_actor_index'));
+                }
+
+                return $ret;
+            }
+            not_entity_actor_index:
+
+            // entity_actor_show
+            if (preg_match('#^/entity_actor/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_entity_actor_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_actor_show')), array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\Entity\\ActorController::showAction',));
+            }
+            not_entity_actor_show:
+
+            // entity_actor_new
+            if ('/entity_actor/new' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_entity_actor_new;
+                }
+
+                return array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\Entity\\ActorController::newAction',  '_route' => 'entity_actor_new',);
+            }
+            not_entity_actor_new:
+
+            // entity_actor_edit
+            if (preg_match('#^/entity_actor/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_entity_actor_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_actor_edit')), array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\Entity\\ActorController::editAction',));
+            }
+            not_entity_actor_edit:
+
+            // entity_actor_delete
+            if (preg_match('#^/entity_actor/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_entity_actor_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_actor_delete')), array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\Entity\\ActorController::deleteAction',));
+            }
+            not_entity_actor_delete:
+
         }
 
-        if (0 === strpos($pathinfo, '/entity_advert')) {
+        elseif (0 === strpos($pathinfo, '/entity_advert')) {
             // entity_advert_index
             if ('/entity_advert' === $trimmedPathinfo) {
                 if ('GET' !== $canonicalMethod) {
