@@ -8,16 +8,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        // On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
-
-        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
-            // Sinon on déclenche un retour vers l'accueil »
-
-            throw new AccessDeniedException('AcmeHomeBundle:Default:index');
 
 
-        }
 
 
         return $this->render('AcmeHomeBundle:Default:index.html.twig');

@@ -1,13 +1,23 @@
+acme_work:
+    resource: "@AcmeWorkBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_filiale:
+    resource: "@AcmeFilialeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_acteur:
+    resource: "@AcmeActeurBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+acme_actu:
+    resource: "@AcmeActuBundle/Resources/config/routing.yml"
+    prefix:   /
+
 acme_contact:
     resource: "@AcmeContactBundle/Resources/config/routing.yml"
-    prefix:   /
-
-acme_accueil:
-    resource: "@AcmeAccueilBundle/Resources/config/routing.yml"
-    prefix:   /
-
-acme_cluster:
-    resource: "@AcmeClusterBundle/Resources/config/routing.yml"
     prefix:   /
 
 acme_home:
@@ -17,11 +27,6 @@ acme_home:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
-
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

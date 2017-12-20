@@ -104,19 +104,87 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // acme_work_homepage
+        if ('/Work' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\WorkBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_work_homepage',);
+        }
+
+        // acme_filiale_homepage
+        if ('/Filiale' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\FilialeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_filiale_homepage',);
+        }
+
+        // acme_acteur_homepage
+        if ('/acteur' === $pathinfo) {
+            return array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_acteur_homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/entity_advert')) {
+            // entity_advert_index
+            if ('/entity_advert' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_entity_advert_index;
+                }
+
+                $ret = array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::indexAction',  '_route' => 'entity_advert_index',);
+                if (substr($pathinfo, -1) !== '/') {
+                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'entity_advert_index'));
+                }
+
+                return $ret;
+            }
+            not_entity_advert_index:
+
+            // entity_advert_show
+            if (preg_match('#^/entity_advert/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_entity_advert_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_advert_show')), array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::showAction',));
+            }
+            not_entity_advert_show:
+
+            // entity_advert_new
+            if ('/entity_advert/new' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_entity_advert_new;
+                }
+
+                return array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::newAction',  '_route' => 'entity_advert_new',);
+            }
+            not_entity_advert_new:
+
+            // entity_advert_edit
+            if (preg_match('#^/entity_advert/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_entity_advert_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_advert_edit')), array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::editAction',));
+            }
+            not_entity_advert_edit:
+
+            // entity_advert_delete
+            if (preg_match('#^/entity_advert/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_entity_advert_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_advert_delete')), array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::deleteAction',));
+            }
+            not_entity_advert_delete:
+
+        }
+
         // acme_contact_homepage
         if ('/contact' === $pathinfo) {
             return array (  '_controller' => 'Acme\\ContactBundle\\Controller\\DefaultController::contactAction',  '_route' => 'acme_contact_homepage',);
-        }
-
-        // acme_cluster_homepage
-        if ('/cluster' === $pathinfo) {
-            return array (  '_controller' => 'Acme\\ClusterBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_cluster_homepage',);
-        }
-
-        // acme_accueil_homepage
-        if ('/accueil' === $pathinfo) {
-            return array (  '_controller' => 'Acme\\AccueilBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_accueil_homepage',);
         }
 
         // acme_home_homepage

@@ -3,9 +3,11 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AcmeHomeBundle/Resources/config/services.yml" }
-    - { resource: "@AcmeClusterBundle/Resources/config/services.yml" }
-    - { resource: "@AcmeAccueilBundle/Resources/config/services.yml" }
     - { resource: "@AcmeContactBundle/Resources/config/services.yml" }
+    - { resource: "@AcmeActuBundle/Resources/config/services.yml" }
+    - { resource: "@AcmeActeurBundle/Resources/config/services.yml" }
+    - { resource: "@AcmeFilialeBundle/Resources/config/services.yml" }
+    - { resource: "@AcmeWorkBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
