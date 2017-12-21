@@ -20,10 +20,11 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Acme\AdminBundle\AcmeHomeBundle(),
             new Acme\ContactBundle\AcmeContactBundle(),
-            new Acme\ActuBundle\AcmeActuBundle(),
             new Acme\ActeurBundle\AcmeActeurBundle(),
             new Acme\FilialeBundle\AcmeFilialeBundle(),
             new Acme\WorkBundle\AcmeWorkBundle(),
+            new Acme\BloggBundle\AcmeBloggBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

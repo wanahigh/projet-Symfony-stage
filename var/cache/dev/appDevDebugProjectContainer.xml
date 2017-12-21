@@ -20,10 +20,11 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="AcmeHomeBundle">Acme\AdminBundle\AcmeHomeBundle</parameter>
       <parameter key="AcmeContactBundle">Acme\ContactBundle\AcmeContactBundle</parameter>
-      <parameter key="AcmeActuBundle">Acme\ActuBundle\AcmeActuBundle</parameter>
       <parameter key="AcmeActeurBundle">Acme\ActeurBundle\AcmeActeurBundle</parameter>
       <parameter key="AcmeFilialeBundle">Acme\FilialeBundle\AcmeFilialeBundle</parameter>
       <parameter key="AcmeWorkBundle">Acme\WorkBundle\AcmeWorkBundle</parameter>
+      <parameter key="AcmeBloggBundle">Acme\BloggBundle\AcmeBloggBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -86,11 +87,6 @@
         <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle</parameter>
         <parameter key="namespace">Acme\ContactBundle</parameter>
       </parameter>
-      <parameter key="AcmeActuBundle" type="collection">
-        <parameter key="parent">null</parameter>
-        <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/ActuBundle</parameter>
-        <parameter key="namespace">Acme\ActuBundle</parameter>
-      </parameter>
       <parameter key="AcmeActeurBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/ActeurBundle</parameter>
@@ -105,6 +101,16 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/WorkBundle</parameter>
         <parameter key="namespace">Acme\WorkBundle</parameter>
+      </parameter>
+      <parameter key="AcmeBloggBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Projet-Symfony-master/src/Acme/BloggBundle</parameter>
+        <parameter key="namespace">Acme\BloggBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Projet-Symfony-master/vendor/doctrine/doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -537,6 +543,7 @@
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_runsqldoctrinecommand">doctrine.query_sql_command</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_updateschemadoctrinecommand">doctrine.schema_update_command</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_validateschemacommand">doctrine.schema_validate_command</parameter>
+      <parameter key="console.command.doctrine_bundle_fixturesbundle_command_loaddatafixturesdoctrinecommand">doctrine.fixtures_load_command</parameter>
       <parameter key="console.command.sensiolabs_security_command_securitycheckercommand">console.command.sensiolabs_security_command_securitycheckercommand</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverruncommand">web_server.command.server_run</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverstartcommand">web_server.command.server_start</parameter>
@@ -584,6 +591,7 @@
       <parameter key="doctrine.query_sql_command">true</parameter>
       <parameter key="doctrine.schema_update_command">true</parameter>
       <parameter key="doctrine.schema_validate_command">true</parameter>
+      <parameter key="doctrine.fixtures_load_command">true</parameter>
       <parameter key="web_server.command.server_run">true</parameter>
       <parameter key="web_server.command.server_start">true</parameter>
       <parameter key="web_server.command.server_stop">true</parameter>
@@ -596,9 +604,6 @@
     <service id="AppBundle\AppBundle" class="AppBundle\AppBundle" public="false" autowire="true" autoconfigure="true"/>
     <service id="AppBundle\Controller\DefaultController" class="AppBundle\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
-    </service>
-    <service id="get_set_method_normalizer" class="Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer" public="false">
-      <tag name="serializer.normalizer"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -900,7 +905,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>MSr4bfyx+Hua-r+QC6HfS1</argument>
+      <argument>xUaRLnKf-dt4u4-a4kN61R</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -910,7 +915,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>MSr4bfyx+Hua-r+QC6HfS1</argument>
+      <argument>xUaRLnKf-dt4u4-a4kN61R</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2813,12 +2818,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a3a79df2a44c7.74188775</argument>
+      <argument>5a3bd768b7ca78.05976094</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a3a79df2a44c7.74188775</argument>
+      <argument>5a3bd768b7ca78.05976094</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3061,14 +3066,6 @@
         <argument>!AcmeHome</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ActuBundle/Resources/views</argument>
-        <argument>AcmeActu</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ActuBundle/Resources/views</argument>
-        <argument>!AcmeActu</argument>
-      </call>
-      <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/ActeurBundle/Resources/views</argument>
         <argument>AcmeActeur</argument>
       </call>
@@ -3091,6 +3088,14 @@
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/WorkBundle/Resources/views</argument>
         <argument>!AcmeWork</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/BloggBundle/Resources/views</argument>
+        <argument>AcmeBlogg</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/BloggBundle/Resources/views</argument>
+        <argument>!AcmeBlogg</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -3282,14 +3287,6 @@
         <argument>!AcmeHome</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ActuBundle/Resources/views</argument>
-        <argument>AcmeActu</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/html/Projet-Symfony-master/src/Acme/ActuBundle/Resources/views</argument>
-        <argument>!AcmeActu</argument>
-      </call>
-      <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/ActeurBundle/Resources/views</argument>
         <argument>AcmeActeur</argument>
       </call>
@@ -3312,6 +3309,14 @@
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/src/Acme/WorkBundle/Resources/views</argument>
         <argument>!AcmeWork</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/BloggBundle/Resources/views</argument>
+        <argument>AcmeBlogg</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Projet-Symfony-master/src/Acme/BloggBundle/Resources/views</argument>
+        <argument>!AcmeBlogg</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Projet-Symfony-master/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -3803,7 +3808,6 @@
         <argument type="collection">
           <argument key="AppBundle">AppBundle\Entity</argument>
           <argument key="AcmeContactBundle">Acme\ContactBundle\Entity</argument>
-          <argument key="AcmeActuBundle">Acme\ActuBundle\Entity</argument>
           <argument key="AcmeActeurBundle">Acme\ActeurBundle\Entity</argument>
         </argument>
       </call>
@@ -3856,7 +3860,6 @@
     <service id="doctrine.orm.default_yml_metadata_driver" class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
       <argument type="collection">
         <argument key="/var/www/html/Projet-Symfony-master/src/Acme/ContactBundle/Resources/config/doctrine">Acme\ContactBundle\Entity</argument>
-        <argument key="/var/www/html/Projet-Symfony-master/src/Acme/ActuBundle/Resources/config/doctrine">Acme\ActuBundle\Entity</argument>
         <argument key="/var/www/html/Projet-Symfony-master/src/Acme/ActeurBundle/Resources/config/doctrine">Acme\ActeurBundle\Entity</argument>
       </argument>
       <call method="setGlobalBasename">
@@ -3871,10 +3874,6 @@
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
         <argument>Acme\ContactBundle\Entity</argument>
-      </call>
-      <call method="addDriver">
-        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
-        <argument>Acme\ActuBundle\Entity</argument>
       </call>
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
@@ -4157,6 +4156,19 @@
       <argument type="service" id="router.default"/>
       <argument>86400</argument>
     </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection"/>
+      </call>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -4300,7 +4312,7 @@
       <argument type="collection"/>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id="service_locator.3wkzln9"/>
+      <argument type="service" id="service_locator.6yov_jw"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -4341,6 +4353,7 @@
         <argument key="doctrine:query:sql">doctrine.query_sql_command</argument>
         <argument key="doctrine:schema:update">doctrine.schema_update_command</argument>
         <argument key="doctrine:schema:validate">doctrine.schema_validate_command</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="server:run">web_server.command.server_run</argument>
         <argument key="server:start">web_server.command.server_start</argument>
         <argument key="server:stop">web_server.command.server_stop</argument>
@@ -4348,7 +4361,7 @@
         <argument key="server:log">web_server.command.server_log</argument>
       </argument>
     </service>
-    <service id="service_locator.3wkzln9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.6yov_jw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -4377,6 +4390,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.generate_entities_command" type="service" id="doctrine.generate_entities_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
@@ -4640,7 +4654,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>gB5h1xHyTS</argument>
       <argument>0</argument>
-      <argument>MSr4bfyx+Hua-r+QC6HfS1</argument>
+      <argument>xUaRLnKf-dt4u4-a4kN61R</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4648,7 +4662,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>lxyn67W66F</argument>
       <argument>0</argument>
-      <argument>MSr4bfyx+Hua-r+QC6HfS1</argument>
+      <argument>xUaRLnKf-dt4u4-a4kN61R</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4656,7 +4670,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>mc9v3LjODf</argument>
       <argument>0</argument>
-      <argument>MSr4bfyx+Hua-r+QC6HfS1</argument>
+      <argument>xUaRLnKf-dt4u4-a4kN61R</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4664,7 +4678,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>KhwyJZ3lsr</argument>
       <argument>0</argument>
-      <argument>MSr4bfyx+Hua-r+QC6HfS1</argument>
+      <argument>xUaRLnKf-dt4u4-a4kN61R</argument>
       <argument>/var/www/html/Projet-Symfony-master/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

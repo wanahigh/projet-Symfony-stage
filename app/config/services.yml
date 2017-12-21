@@ -33,3 +33,5 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Advert</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Date</th>
+                <td>{% if advert.date %}{{ advert.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ advert.image }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ advert.categories }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ advert.title }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ advert.author }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ advert.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('entity_advert_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('entity_advert_edit', { 'id': advert.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

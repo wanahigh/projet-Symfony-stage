@@ -104,6 +104,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // acme_blogg_default_index
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'Acme\\BloggBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_blogg_default_index',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'acme_blogg_default_index'));
+            }
+
+            return $ret;
+        }
+
         // acme_work_homepage
         if ('/Work' === $pathinfo) {
             return array (  '_controller' => 'Acme\\WorkBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_work_homepage',);
@@ -174,69 +184,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_actor_delete')), array (  '_controller' => 'Acme\\ActeurBundle\\Controller\\Entity\\ActorController::deleteAction',));
             }
             not_entity_actor_delete:
-
-        }
-
-        elseif (0 === strpos($pathinfo, '/entity_advert')) {
-            // entity_advert_index
-            if ('/entity_advert' === $trimmedPathinfo) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_entity_advert_index;
-                }
-
-                $ret = array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::indexAction',  '_route' => 'entity_advert_index',);
-                if (substr($pathinfo, -1) !== '/') {
-                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'entity_advert_index'));
-                }
-
-                return $ret;
-            }
-            not_entity_advert_index:
-
-            // entity_advert_show
-            if (preg_match('#^/entity_advert/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_entity_advert_show;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_advert_show')), array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::showAction',));
-            }
-            not_entity_advert_show:
-
-            // entity_advert_new
-            if ('/entity_advert/new' === $pathinfo) {
-                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                    $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_entity_advert_new;
-                }
-
-                return array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::newAction',  '_route' => 'entity_advert_new',);
-            }
-            not_entity_advert_new:
-
-            // entity_advert_edit
-            if (preg_match('#^/entity_advert/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                    $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_entity_advert_edit;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_advert_edit')), array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::editAction',));
-            }
-            not_entity_advert_edit:
-
-            // entity_advert_delete
-            if (preg_match('#^/entity_advert/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if ('DELETE' !== $canonicalMethod) {
-                    $allow[] = 'DELETE';
-                    goto not_entity_advert_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'entity_advert_delete')), array (  '_controller' => 'Acme\\ActuBundle\\Controller\\Entity\\AdvertController::deleteAction',));
-            }
-            not_entity_advert_delete:
 
         }
 

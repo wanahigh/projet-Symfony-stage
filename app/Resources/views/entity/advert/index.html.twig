@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <style>   .btn-large {
+            margin-left:85vw;
+            margin-top:10vh;
+        }
+    </style>
+
+{#-----------------------------------------------------------------------------------------------------------------------#}
+
+    <h1>L'actualité </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Date</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Article</th>
+                <th>Categories</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for advert in adverts %}
+            <tr>
+                <td><a href="{{ path('entity_advert_show', { 'id': advert.id }) }}">{{ advert.id }}</a></td>
+                <td style="visibility:hidden;">{% if advert.date %}{{ advert.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ advert.image }}</td>
+                <td>{{ advert.title }}</td>
+                <td>{{ advert.author }}</td>
+                <td>{{ advert.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('entity_advert_show', { 'id': advert.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('entity_advert_edit', { 'id': advert.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('entity_advert_new') }}"><button class="btn-large pink pulse">add</button></a>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+{% endblock %}

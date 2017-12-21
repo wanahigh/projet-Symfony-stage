@@ -4,10 +4,11 @@ imports:
     - { resource: services.yml }
     - { resource: "@AcmeHomeBundle/Resources/config/services.yml" }
     - { resource: "@AcmeContactBundle/Resources/config/services.yml" }
-    - { resource: "@AcmeActuBundle/Resources/config/services.yml" }
     - { resource: "@AcmeActeurBundle/Resources/config/services.yml" }
     - { resource: "@AcmeFilialeBundle/Resources/config/services.yml" }
     - { resource: "@AcmeWorkBundle/Resources/config/services.yml" }
+    - { resource: "@AcmeBloggBundle/Resources/config/services.yml" }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -73,4 +74,3 @@ fos_user:
     from_email:
         address: "test@test.com"
         sender_name: "ja"
-

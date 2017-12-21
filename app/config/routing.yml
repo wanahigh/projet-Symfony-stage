@@ -1,3 +1,8 @@
+acme_blogg:
+    resource: "@AcmeBloggBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 acme_work:
     resource: "@AcmeWorkBundle/Resources/config/routing.yml"
     prefix:   /
@@ -8,12 +13,6 @@ acme_filiale:
 
 acme_acteur:
     resource: "@AcmeActeurBundle/Resources/config/routing.yml"
-    prefix:   /
-
-
-
-acme_actu:
-    resource: "@AcmeActuBundle/Resources/config/routing.yml"
     prefix:   /
 
 acme_contact:
